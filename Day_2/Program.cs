@@ -4,9 +4,17 @@ using Utils;
 
 namespace Day_2
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
+        {
+            Runner.Run(args);
+        }
+    }
+
+    public static class Runner
+    {
+        public static void Run(string[] args)
         {
             var (ex, path) = Loader.ParseArgs(args);
             TextReader reader = (path == null) ? Console.In : new StreamReader(path);

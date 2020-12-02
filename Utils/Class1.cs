@@ -25,6 +25,22 @@ namespace Utils
             return ret;
         }
 
+        public static int LoadNumber(TextReader reader)
+        {
+            string? line = reader.ReadLine();
+            if (line == null)
+            {
+                throw new ArgumentNullException(nameof(line), "Expected number on input, but EOF appeared instead.");
+            }
+
+            if (int.TryParse(line, out int num))
+            {
+                return num;
+            }
+
+            throw new ArgumentException($"Input '{line}' couldn't be parsed as a number.", nameof(line));
+        }
+
         public static List<string> LoadInput(TextReader reader)
         {
             var ret = new List<string>();

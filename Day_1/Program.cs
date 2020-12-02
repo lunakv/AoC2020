@@ -9,6 +9,14 @@ namespace Day_1
     {
         static void Main(string[] args)
         {
+            Runner.Run(args);
+        }
+    }
+
+    public static class Runner
+    {
+        public static void Run(string[] args)
+        {
             if (args.Length == 0 || !int.TryParse(args[0], out int ex))
             {
                 Console.Error.WriteLine("First argument must be number of exercise (1 or 2).");

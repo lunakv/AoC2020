@@ -7,9 +7,11 @@ namespace Runner
     {
         static void Main(string[] args)
         {
+            string basePath = (args.Length > 0) ? args[0].TrimEnd('/', '\\') : ".";
+            
             Console.Write("Select exercise number: ");
             int num = Loader.LoadNumber(Console.In);
-            args = new[] { num.ToString(), $"../../../../inputs/e{num}.txt"};
+            args = new[] { num.ToString(), $"{basePath}/e{num}.txt"};
 
             switch (num)
             {

@@ -16,6 +16,10 @@ namespace Day_2
             {
                 new E3 {Input = input}.Solve();
             }
+            else
+            {
+                new E4 {Input = input}.Solve();
+            }
         }
     }
 }

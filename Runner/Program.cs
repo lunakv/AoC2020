@@ -26,6 +26,9 @@ namespace Runner
                 case 4:
                     Day_2.Runner.Run(args);
                     break;
+                case 5:
+                    Day_3.Runner.Run(args);
+                    break;
                 default:
                     Console.Error.WriteLine($"Solution for exercise {num} wasn't implemented yet.");
                     break;

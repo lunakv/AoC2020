@@ -3,11 +3,11 @@ using Utils;
 
 namespace Day_1
 {
-    public abstract class E12 : ISolver
+    public abstract class E12 : NumSolver
     {
         public int Sum { get; set; }
         private List<int> _input = new List<int>();
-        public List<int> Input
+        public override List<int> Input
         {
             get => _input;
             set
@@ -16,8 +16,6 @@ namespace Day_1
                 _input.Sort();
             }
         }
-
-        public abstract void Solve();
     }
 
 }

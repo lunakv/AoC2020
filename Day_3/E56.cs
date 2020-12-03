@@ -3,16 +3,12 @@ using Utils;
 
 namespace Day_3
 {
-    public abstract class E56 : ISolver
+    public abstract class E56 : StringSolver
     {
-        public List<string> Input { get; set; } = new List<string>();
-
         public (int, int) Slope { get; set; }
 
         public char TreeChar { get; set; } = '#';
         
-        public abstract void Solve();
-
         protected uint CountTrees()
         {
             uint trees = 0;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Utils
 {
@@ -23,6 +24,12 @@ namespace Utils
             }
 
             return ret;
+        }
+
+        public static List<int> LoadNumbers(string? path)
+        {
+            var reader = path == null ? Console.In : new StreamReader(path);
+            return LoadNumbers(reader);
         }
 
         public static int LoadNumber(TextReader reader)
@@ -53,6 +60,12 @@ namespace Utils
             return ret;
         }
 
+        public static List<string> LoadInput(string? path)
+        {
+            var reader = path == null ? Console.In : new StreamReader(path);
+            return LoadInput(reader);
+        }
+
         public static (int, string?) ParseArgs(string[] args)
         {
             if (args.Length < 1)
@@ -67,10 +80,16 @@ namespace Utils
 
             return (ex, args.Length > 1 ? args[1] : null);
         }
+
+        public static void ValidateExercise(int num, params int[] allowed)
+        {
+            if (!allowed.Contains(num))
+            {
+                throw new ArgumentOutOfRangeException(nameof(num),
+                    $"Exercise number {num} is invalid for this project.");
+            }
+        }
     }
 
-    public interface ISolver
-    {
-        void Solve();
-    }
+    
 }

@@ -4,12 +4,8 @@ using Utils;
 
 namespace Day_2
 {
-    public abstract class E34 : ISolver
+    public abstract class E34 : StringSolver
     {
-        public List<string> Input { get; set; } = new List<string>();
-
-        public abstract void Solve();
-        
         protected (int, int, char, string) ParseLine(string line)
         {
             var split = line.Split('-', ' ', ':');

@@ -17,18 +17,9 @@ namespace Day_1
     {
         public static void Run(string[] args)
         {
-            if (args.Length == 0 || !int.TryParse(args[0], out int ex))
-            {
-                Console.Error.WriteLine("First argument must be number of exercise (1 or 2).");
-                return;
-            }
-            if (ex != 1 && ex != 2)
-            {
-                Console.Error.WriteLine("First argument must be 1 or 2");
-            }
-            
-            var reader = (args.Length > 1 ? new StreamReader(args[1]) : Console.In);
-            List<int> input = Loader.LoadNumbers(reader);
+            var (ex, path) = Loader.ParseArgs(args);
+            Loader.ValidateExercise(ex, 1, 2);
+            List<int> input = Loader.LoadNumbers(path);
             
             if (ex == 1)
             {

@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Utils;
 
 namespace Day_3
 {
@@ -11,7 +9,5 @@ namespace Day_3
             uint trees = CountTrees();
             Console.WriteLine($"This path would encounter {trees} trees.");
         }
-        
-        
     }
 }

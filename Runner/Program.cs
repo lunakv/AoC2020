@@ -3,18 +3,19 @@ using Utils;
 
 namespace Runner
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            string basePath = (args.Length > 0) ? args[0].TrimEnd('/', '\\') : ".";
-			int num;
-			if (args.Length <= 1 || !int.TryParse(args[1], out num))
-			{		
+            string basePath = args.Length > 0 ? args[0].TrimEnd('/', '\\') : ".";
+            int num;
+            if (args.Length <= 1 || !int.TryParse(args[1], out num))
+            {
                 Console.Write("Select exercise number: ");
                 num = Loader.LoadNumber(Console.In);
-			}
-            args = new[] { num.ToString(), $"{basePath}/e{num}.txt"};
+            }
+
+            args = new[] {num.ToString(), $"{basePath}/e{num}.txt"};
 
             switch (num)
             {

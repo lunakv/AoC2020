@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Utils;
 
 namespace Day_1
 {
@@ -10,14 +8,16 @@ namespace Day_1
         {
             var pair = FindPair();
             if (pair == null)
+            {
                 Console.WriteLine("No numbers that add up to 2020 found.");
+            }
             else
             {
                 Console.WriteLine($"Numbers are {pair.Item1} and {pair.Item2}");
                 Console.WriteLine($"Their product is {pair.Item1 * pair.Item1}");
             }
         }
-        
+
         public Tuple<int, int>? FindPair(int start = 0)
         {
             int front = start;
@@ -27,17 +27,11 @@ namespace Day_1
                 int a = Input[front];
                 int b = Input[back];
                 if (a + b == Sum)
-                {
                     return new Tuple<int, int>(a, b);
-                } 
-                else if (a + b > Sum)
-                {
+                if (a + b > Sum)
                     back--;
-                }
                 else
-                {
                     front++;
-                }
             }
 
             return null;

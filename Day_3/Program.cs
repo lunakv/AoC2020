@@ -5,9 +5,9 @@ using Utils;
 
 namespace Day_3
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Runner.Run(args);
         }
@@ -17,18 +17,14 @@ namespace Day_3
     {
         public static void Run(string[] args)
         {
-            var (num, path) = Loader.ParseArgs(args);
-            var reader = path == null ? Console.In : new StreamReader(path);
+            (int num, string? path) = Loader.ParseArgs(args);
+            TextReader? reader = path == null ? Console.In : new StreamReader(path);
             List<string> input = Loader.LoadInput(reader);
 
             if (num == 5)
-            {
                 new E5 {Input = input, Slope = (3, 1)}.Solve();
-            }
             else
-            {
                 new E6 {Input = input}.Solve();
-            }
         }
     }
 }

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using Utils;
 
 namespace Day_1
 {
-    static class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Runner.Run(args);
         }
@@ -17,18 +15,14 @@ namespace Day_1
     {
         public static void Run(string[] args)
         {
-            var (ex, path) = Loader.ParseArgs(args);
+            (int ex, string? path) = Loader.ParseArgs(args);
             Loader.ValidateExercise(ex, 1, 2);
             List<int> input = Loader.LoadNumbers(path);
-            
+
             if (ex == 1)
-            {
                 new E1 {Sum = 2020, Input = input}.Solve();
-            }
             else
-            {
                 new E2 {Sum = 2020, Input = input}.Solve();
-            }
         }
     }
 }

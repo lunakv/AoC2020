@@ -5,8 +5,9 @@ namespace Day_1
 {
     public abstract class E12 : NumSolver
     {
-        public int Sum { get; set; }
         private List<int> _input = new List<int>();
+        public int Sum { get; set; }
+
         public override List<int> Input
         {
             get => _input;
@@ -17,5 +18,4 @@ namespace Day_1
             }
         }
     }
-
 }

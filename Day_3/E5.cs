@@ -4,26 +4,14 @@ using Utils;
 
 namespace Day_3
 {
-    public class E5 : ISolver
+    public class E5 : E56
     {
-        public List<string> Input { get; set; } = new List<string>();
-
-        public (int, int) Slope { get; set; }
-
-        public char TreeChar { get; set; }
-
-        public void Solve()
+        public override void Solve()
         {
-            int trees = 0;
-            int width = Input[0].Length;
-            int x = 0;
-            for (int y = 0; y < Input.Count; y += Slope.Item2)
-            {
-                if (Input[y][x] == TreeChar) trees++;
-                x = (x + Slope.Item1) % width;
-            }
-
+            uint trees = CountTrees();
             Console.WriteLine($"This path would encounter {trees} trees.");
         }
+        
+        
     }
 }

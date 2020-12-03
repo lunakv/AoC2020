@@ -23,7 +23,11 @@ namespace Day_3
 
             if (num == 5)
             {
-                new E5 {Input = input, Slope = (3, 1), TreeChar = '#'}.Solve();
+                new E5 {Input = input, Slope = (3, 1)}.Solve();
+            }
+            else
+            {
+                new E6 {Input = input}.Solve();
             }
         }
     }

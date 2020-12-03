@@ -27,6 +27,7 @@ namespace Runner
                     Day_2.Runner.Run(args);
                     break;
                 case 5:
+                case 6:
                     Day_3.Runner.Run(args);
                     break;
                 default:

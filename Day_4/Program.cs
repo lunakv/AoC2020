@@ -26,7 +26,7 @@ namespace Day_4
             }
             else
             {
-                // new E8 {Input = input}.Solve();
+                new E8 {Input = input}.Solve();
             }
 
         }

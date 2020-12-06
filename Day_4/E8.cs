@@ -15,8 +15,8 @@ namespace Day_4
             {"hgt", val =>
             {
                 if (val.Length < 2) return false;
-                string? unit = val.Substring(val.Length - 2);
-                string? num = val.Substring(0, val.Length - 2);
+                string unit = val.Substring(val.Length - 2);
+                string num = val.Substring(0, val.Length - 2);
                 return unit switch
                 {
                     "cm" => int.TryParse(num, out int n) && n >= 150 && n <= 193,

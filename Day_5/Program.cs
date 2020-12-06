@@ -26,7 +26,7 @@ namespace Day_5
             }
             else
             {
-                // new E10 {Input = input}.Solve();
+                new E10 {Input = input}.Solve();
             }
         }
     }

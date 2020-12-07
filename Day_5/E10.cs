@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Day_5
 {
-    public class E10 : E910
+    public class E10 : E9_10
     {
         public override void Solve()
         {

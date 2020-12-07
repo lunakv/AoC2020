@@ -4,7 +4,7 @@ using Utils;
 
 namespace Day_4
 {
-    public abstract class E78 : StringSolver
+    public abstract class E7_8 : StringSolver
     {
         protected readonly HashSet<string> Required = new HashSet<string>
             {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};

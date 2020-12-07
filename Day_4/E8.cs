@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Day_4
 {
-    public class E8 : E78
+    public class E8 : E7_8
     {
         private static readonly Dictionary<string,Predicate<string>> Formats = new Dictionary<string, Predicate<string>>
         {

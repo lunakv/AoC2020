@@ -2,7 +2,7 @@ using Utils;
 
 namespace Day_3
 {
-    public abstract class E56 : StringSolver
+    public abstract class E5_6 : StringSolver
     {
         public (int, int) Slope { get; set; }
 

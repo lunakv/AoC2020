@@ -2,7 +2,7 @@ using System;
 
 namespace Day_2
 {
-    public class E3 : E34
+    public class E3 : E3_4
     {
         public override void Solve()
         {

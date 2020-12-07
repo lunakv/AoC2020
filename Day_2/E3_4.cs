@@ -3,7 +3,7 @@ using Utils;
 
 namespace Day_2
 {
-    public abstract class E34 : StringSolver
+    public abstract class E3_4 : StringSolver
     {
         protected (int, int, char, string) ParseLine(string line)
         {

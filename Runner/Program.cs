@@ -1,4 +1,10 @@
 ﻿using System;
+using Day_1;
+using Day_2;
+using Day_3;
+using Day_4;
+using Day_5;
+using Day_6;
 using Utils;
 
 namespace Runner
@@ -8,44 +14,44 @@ namespace Runner
         private static void Main(string[] args)
         {
             string basePath = args.Length > 0 ? args[0].TrimEnd('/', '\\') : ".";
-            int num;
-            if (args.Length <= 1 || !int.TryParse(args[1], out num))
+            if (args.Length <= 1 || !int.TryParse(args[1], out int num))
             {
                 Console.Write("Select exercise number: ");
                 num = Loader.LoadNumber(Console.In);
             }
-
-            args = new[] {num.ToString(), $"{basePath}/e{num}.txt"};
-
-            switch (num)
+            var path = $"{basePath}/e{num}.txt";
+            
+            ISolver solver = num switch
             {
-                case 1:
-                case 2:
-                    Day_1.Runner.Run(args);
+                1 => new E1 {Sum = 2020},
+                2 => new E2 {Sum = 2020},
+                3 => new E3(),
+                4 => new E4(),
+                5 => new E5 {Slope = (3, 1)},
+                6 => new E6(),
+                7 => new E7(),
+                8 => new E8(),
+                9 => new E9(),
+                10 => new E10(),
+                11 => new E11(),
+                12 => new E12(),
+                _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
+            };
+            
+            switch (solver)
+            {
+                case NumSolver n:
+                    var nInput = Loader.LoadNumbers(path);
+                    n.Input = nInput;
+                    n.Solve();
                     break;
-                case 3:
-                case 4:
-                    Day_2.Runner.Run(args);
-                    break;
-                case 5:
-                case 6:
-                    Day_3.Runner.Run(args);
-                    break;
-                case 7:
-                case 8:
-                    Day_4.Runner.Run(args);
-                    break;
-                case 9:
-                case 10:
-                    Day_5.Runner.Run(args);
-                    break;
-                case 11:
-                case 12:
-                    Day_6.Runner.Run(args);
+                case StringSolver s:
+                    var sInput = Loader.LoadInput(path);
+                    s.Input = sInput;
+                    s.Solve();
                     break;
                 default:
-                    Console.Error.WriteLine($"Solution for exercise {num} wasn't implemented yet.");
-                    break;
+                    throw new ArgumentException("Unknown ISolver implementing class.");
             }
         }
     }

@@ -6,7 +6,7 @@ using Utils;
 
 namespace Day_5
 {
-    public class E9 : E910
+    public class E9 : E9_10
     {
         public override void Solve()
         {

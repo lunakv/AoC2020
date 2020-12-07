@@ -3,7 +3,7 @@ using Utils;
 
 namespace Day_5
 {
-    public abstract class E910 : StringSolver
+    public abstract class E9_10 : StringSolver
     {
         protected const int NumRows = 128;
         protected const int NumCols = 8;

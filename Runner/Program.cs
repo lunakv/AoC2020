@@ -6,6 +6,7 @@ using Day_4;
 using Day_5;
 using Day_6;
 using Day_7;
+using Day_8;
 using Utils;
 
 namespace Runner
@@ -38,6 +39,8 @@ namespace Runner
                 12 => new E12(),
                 13 => new E13(),
                 14 => new E14(),
+                15 => new E15(),
+                16 => new E16(),
                 _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
             };
             

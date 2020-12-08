@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <LangVersion>9</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -14,14 +15,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Day_1\Day_1.csproj" />
-      <ProjectReference Include="..\Day_2\Day_2.csproj" />
-      <ProjectReference Include="..\Day_3\Day_3.csproj" />
-      <ProjectReference Include="..\Day_4\Day_4.csproj" />
-      <ProjectReference Include="..\Day_5\Day_5.csproj" />
-      <ProjectReference Include="..\Day_6\Day_6.csproj" />
-      <ProjectReference Include="..\Day_7\Day_7.csproj" />
-      <ProjectReference Include="..\Day_8\Day_8.csproj" />
       <ProjectReference Include="..\Utils\Utils.csproj" />
     </ItemGroup>
 

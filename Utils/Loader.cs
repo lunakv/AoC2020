@@ -22,8 +22,27 @@ namespace Utils
 
         public static List<int> LoadNumbers(string? path)
         {
-            TextReader? reader = path == null ? Console.In : new StreamReader(path);
+            TextReader reader = path == null ? Console.In : new StreamReader(path);
             return LoadNumbers(reader);
+        }
+
+        public static List<long> LoadLongNumbers(TextReader reader)
+        {
+            var ret = new List<long>();
+            string? line;
+            while ((line = reader.ReadLine()) != null)
+                if (long.TryParse(line, out long num))
+                    ret.Add(num);
+                else
+                    throw new FormatException($"String \"{line}\" couldn't be parsed as a number!");
+
+            return ret;
+        }
+
+        public static List<long> LoadLongNumbers(string? path)
+        {
+            TextReader reader = path == null ? Console.In : new StreamReader(path);
+            return LoadLongNumbers(reader);
         }
 
         public static int LoadNumber(TextReader reader)

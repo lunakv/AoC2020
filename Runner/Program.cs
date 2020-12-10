@@ -7,6 +7,7 @@ using Day_5;
 using Day_6;
 using Day_7;
 using Day_8;
+using Day_9;
 using Utils;
 
 namespace Runner
@@ -41,6 +42,8 @@ namespace Runner
                 14 => new E14(),
                 15 => new E15(),
                 16 => new E16(),
+                17 => new E17(),
+                18 => new E18(),
                 _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
             };
             
@@ -50,6 +53,11 @@ namespace Runner
                     var nInput = Loader.LoadNumbers(path);
                     n.Input = nInput;
                     n.Solve();
+                    break;
+                case LongNumSolver l:
+                    var lInput = Loader.LoadLongNumbers(path);
+                    l.Input = lInput;
+                    l.Solve();
                     break;
                 case StringSolver s:
                     var sInput = Loader.LoadInput(path);

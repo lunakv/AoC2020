@@ -18,4 +18,10 @@ namespace Utils
         public virtual List<string> Input { get; set; } = new List<string>();
         public abstract void Solve();
     }
+
+    public abstract class LongNumSolver : ISolver
+    {
+        public virtual List<long> Input { get; set; } = new List<long>();
+        public abstract void Solve();
+    }
 }

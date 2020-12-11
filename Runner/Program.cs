@@ -54,6 +54,8 @@ namespace Runner
                 _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
             };
             
+            var totalStopwatch = new Stopwatch();
+            totalStopwatch.Start();
             switch (solver)
             {
                 case NumSolver n:
@@ -76,7 +78,9 @@ namespace Runner
             stopwatch.Start();
             solver.Solve();
             stopwatch.Stop();
-            Console.WriteLine($"\nSolver ran in {stopwatch.Elapsed.Milliseconds} ms");
+            totalStopwatch.Stop();
+            Console.WriteLine($"\nSolver ran in {stopwatch.ElapsedMilliseconds} ms");
+            Console.WriteLine($"Total runtime was {totalStopwatch.ElapsedMilliseconds} ms");
         }
     }
 }

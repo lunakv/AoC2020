@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Day_1;
 using Day_10;
 using Day_11;
@@ -58,21 +59,24 @@ namespace Runner
                 case NumSolver n:
                     var nInput = Loader.LoadNumbers(path);
                     n.Input = nInput;
-                    n.Solve();
                     break;
                 case LongNumSolver l:
                     var lInput = Loader.LoadLongNumbers(path);
                     l.Input = lInput;
-                    l.Solve();
                     break;
                 case StringSolver s:
                     var sInput = Loader.LoadInput(path);
                     s.Input = sInput;
-                    s.Solve();
                     break;
                 default:
                     throw new ArgumentException("Unknown ISolver implementing class.");
             }
+
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            solver.Solve();
+            stopwatch.Stop();
+            Console.WriteLine($"\nSolver ran in {stopwatch.Elapsed.Milliseconds} ms");
         }
     }
 }

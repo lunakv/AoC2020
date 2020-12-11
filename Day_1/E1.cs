@@ -6,6 +6,7 @@ namespace Day_1
     {
         public override void Solve()
         {
+            Input.Sort();
             var pair = FindPair();
             if (pair == null)
             {

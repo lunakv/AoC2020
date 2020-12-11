@@ -5,17 +5,6 @@ namespace Day_1
 {
     public abstract class E1_2 : NumSolver
     {
-        private List<int> _input = new List<int>();
         public int Sum { get; set; }
-
-        public override List<int> Input
-        {
-            get => _input;
-            set
-            {
-                _input = value;
-                _input.Sort();
-            }
-        }
     }
 }

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Day_1;
 using Day_10;
 using Day_11;
+using Day_12;
 using Day_2;
 using Day_3;
 using Day_4;
@@ -51,6 +52,8 @@ namespace Runner
                 20 => new E20(),
                 21 => new E21(),
                 22 => new E22(),
+                23 => new E23(),
+                24 => new E24(),
                 _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
             };
             

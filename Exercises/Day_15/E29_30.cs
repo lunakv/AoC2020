@@ -22,7 +22,7 @@ namespace Exercises.Day_15
             
             for (long i = sequence.Count; i < Iterations; i++)
             {
-                long newLast = occurrences.ContainsKey(last) ? i - occurrences[last] : 0;
+                long newLast = occurrences.TryGetValue(last, out long val) ? i - val : 0;
                 occurrences[last] = i;
                 last = newLast;
             }

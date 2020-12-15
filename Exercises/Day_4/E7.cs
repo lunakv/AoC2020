@@ -1,0 +1,19 @@
+using System;
+
+namespace Exercises.Day_4
+{
+    public class E7 : E7_8
+    {
+        public override void Solve()
+        {
+            int valid = 0;
+            var passports = GetPassports();
+            foreach (var passport in passports)
+            {
+                if (Required.SetEquals(passport.Keys))
+                    valid++;
+            }
+            Console.WriteLine($"Found {valid} valid passports.");
+        }
+    }
+}

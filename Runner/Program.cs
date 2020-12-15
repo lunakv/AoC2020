@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Reflection;
-using Day_1;
-using Day_10;
-using Day_11;
-using Day_12;
-using Day_13;
-using Day_14;
-using Day_15;
-using Day_2;
-using Day_3;
-using Day_4;
-using Day_5;
-using Day_6;
-using Day_7;
-using Day_8;
-using Day_9;
+using Exercises.Day_1;
+using Exercises.Day_10;
+using Exercises.Day_11;
+using Exercises.Day_12;
+using Exercises.Day_13;
+using Exercises.Day_14;
+using Exercises.Day_15;
+using Exercises.Day_2;
+using Exercises.Day_3;
+using Exercises.Day_4;
+using Exercises.Day_5;
+using Exercises.Day_6;
+using Exercises.Day_7;
+using Exercises.Day_8;
+using Exercises.Day_9;
 using Utils;
 
 namespace Runner
@@ -62,8 +61,8 @@ namespace Runner
                 26 => new E26(),
                 27 => new E27(),
                 28 => new E28(),
-                29 => new E29 {Iterations = 2020},
-                30 => new E29 {Iterations = 30_000_000},
+                29 => new E29(),
+                30 => new E30(),
                 _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
             };
 

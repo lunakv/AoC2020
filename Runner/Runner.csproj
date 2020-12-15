@@ -2,15 +2,19 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
+        <LangVersion>9</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+      <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
       <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+      <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,6 +23,7 @@
       <ProjectReference Include="..\Day_12\Day_12.csproj" />
       <ProjectReference Include="..\Day_13\Day_13.csproj" />
       <ProjectReference Include="..\Day_14\Day_14.csproj" />
+      <ProjectReference Include="..\Day_15\Day_15.csproj" />
       <ProjectReference Include="..\Day_1\Day_1.csproj" />
       <ProjectReference Include="..\Day_2\Day_2.csproj" />
       <ProjectReference Include="..\Day_3\Day_3.csproj" />

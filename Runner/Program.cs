@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Reflection;
 using Day_1;
 using Day_10;
 using Day_11;
 using Day_12;
 using Day_13;
 using Day_14;
+using Day_15;
 using Day_2;
 using Day_3;
 using Day_4;
@@ -60,9 +62,11 @@ namespace Runner
                 26 => new E26(),
                 27 => new E27(),
                 28 => new E28(),
+                29 => new E29 {Iterations = 2020},
+                30 => new E29 {Iterations = 30_000_000},
                 _ => throw new NotImplementedException($"Exercise {num} not yet implemented."),
             };
-            
+
             var totalStopwatch = new Stopwatch();
             totalStopwatch.Start();
             switch (solver)

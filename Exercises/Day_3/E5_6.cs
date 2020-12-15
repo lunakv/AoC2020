@@ -4,9 +4,9 @@ namespace Exercises.Day_3
 {
     public abstract class E5_6 : StringSolver
     {
-        public (int, int) Slope { get; set; }
+        protected (int, int) Slope { get; set; } = (3, 1);
 
-        public char TreeChar { get; set; } = '#';
+        private const char TreeChar = '#';
 
         protected uint CountTrees()
         {

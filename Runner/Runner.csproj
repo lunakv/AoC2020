@@ -18,21 +18,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Day_10\Day_10.csproj" />
-      <ProjectReference Include="..\Day_11\Day_11.csproj" />
-      <ProjectReference Include="..\Day_12\Day_12.csproj" />
-      <ProjectReference Include="..\Day_13\Day_13.csproj" />
-      <ProjectReference Include="..\Day_14\Day_14.csproj" />
-      <ProjectReference Include="..\Day_15\Day_15.csproj" />
-      <ProjectReference Include="..\Day_1\Day_1.csproj" />
-      <ProjectReference Include="..\Day_2\Day_2.csproj" />
-      <ProjectReference Include="..\Day_3\Day_3.csproj" />
-      <ProjectReference Include="..\Day_4\Day_4.csproj" />
-      <ProjectReference Include="..\Day_5\Day_5.csproj" />
-      <ProjectReference Include="..\Day_6\Day_6.csproj" />
-      <ProjectReference Include="..\Day_7\Day_7.csproj" />
-      <ProjectReference Include="..\Day_8\Day_8.csproj" />
-      <ProjectReference Include="..\Day_9\Day_9.csproj" />
       <ProjectReference Include="..\Exercises\Exercises.csproj" />
       <ProjectReference Include="..\Utils\Utils.csproj" />
     </ItemGroup>

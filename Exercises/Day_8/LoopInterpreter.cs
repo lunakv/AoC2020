@@ -5,8 +5,8 @@ namespace Exercises.Day_8
     public class LoopInterpreter
     {
         private readonly List<Operation> _instructions;
-        private int _acc = 0;
-        private int _sp = 0;
+        private int _acc;
+        private int _sp;
 
         public LoopInterpreter(IParser parser, List<string> input)
         {

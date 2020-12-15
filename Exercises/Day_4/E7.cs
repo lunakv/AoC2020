@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Exercises.Day_4
 {
@@ -6,13 +7,8 @@ namespace Exercises.Day_4
     {
         public override void Solve()
         {
-            int valid = 0;
             var passports = GetPassports();
-            foreach (var passport in passports)
-            {
-                if (Required.SetEquals(passport.Keys))
-                    valid++;
-            }
+            int valid = passports.Count(passport => Required.SetEquals(passport.Keys));
             Console.WriteLine($"Found {valid} valid passports.");
         }
     }

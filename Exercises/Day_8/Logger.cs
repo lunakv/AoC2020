@@ -1,11 +1,6 @@
 namespace Exercises.Day_8
 {
-    public interface ILogger
-    {
-        void Log(int index, params string[] args);
-    }
-    
-    public class UsageLogger : ILogger
+    public class UsageLogger
     {
         private readonly int[] _usages;
 

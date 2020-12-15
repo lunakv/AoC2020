@@ -7,8 +7,8 @@ namespace Exercises.Day_9
     public class E17 : LongNumSolver
     {
         private const int PreambleSize = 25;
-        private readonly List<long> _sortedBuffer = new List<long>(PreambleSize);
-        private readonly Queue<long> _buffer = new Queue<long>(PreambleSize);
+        private readonly List<long> _sortedBuffer = new(PreambleSize);
+        private readonly Queue<long> _buffer = new(PreambleSize);
         
         public override void Solve()
         {

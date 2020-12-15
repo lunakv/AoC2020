@@ -8,30 +8,29 @@ namespace Exercises.Day_7
     
     public abstract class E13_14 : StringSolver
     {
-        protected readonly Graph _reverseGraph = new Graph();
-        protected readonly Graph _forwardGraph = new Graph();
+        protected readonly Graph ReverseGraph = new();
+        protected readonly Graph ForwardGraph = new();
         
         protected void LoadGraph()
         {
             foreach (string rule in Input)
             {
-                var separators = new[] {"bags contain", "bag,", "bag.", "bags,", "bags."};
-                var split = rule.Split(" bags contain ", StringSplitOptions.RemoveEmptyEntries);
+                string[] split = rule.Split(" bags contain ", StringSplitOptions.RemoveEmptyEntries);
                 string container = split[0];
-                var contents = split[1].Split(
+                string[] contents = split[1].Split(
                     new[] {" bag, ", " bags, ", " bag.", " bags."},
                     StringSplitOptions.RemoveEmptyEntries);
 
-                _forwardGraph.TryAdd(container, new List<(string, int)>());
+                ForwardGraph.TryAdd(container, new List<(string, int)>());
                 
                 foreach (string content in contents)
                 {
-                    var splitContent = content.Split(null, 2);
+                    string[] splitContent = content.Split(null, 2);
                     if (int.TryParse(splitContent[0], out int value))
                     {
-                        _forwardGraph[container].Add((splitContent[1], value));
-                        _reverseGraph.TryAdd(splitContent[1], new List<(string, int)>());
-                        _reverseGraph[splitContent[1]].Add((container, value));
+                        ForwardGraph[container].Add((splitContent[1], value));
+                        ReverseGraph.TryAdd(splitContent[1], new List<(string, int)>());
+                        ReverseGraph[splitContent[1]].Add((container, value));
                     }
                 }
 

@@ -18,7 +18,7 @@ namespace Exercises.Day_13
         private List<(int, int)> ParseBuses(string line)
         {
             var ret = new List<(int, int)>();
-            var split = line.Split(',');
+            string[] split = line.Split(',');
             for (int i = 0; i < split.Length; i++)
             {
                 if (int.TryParse(split[i], out int num))

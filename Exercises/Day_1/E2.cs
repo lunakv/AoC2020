@@ -23,7 +23,7 @@ namespace Exercises.Day_1
         {
             Input.Sort();
             var pairer = new E1 {Input = Input};
-            for (var i = 0; i < Input.Count - 2; i++)
+            for (int i = 0; i < Input.Count - 2; i++)
             {
                 int n = Input[i];
                 pairer.Sum = Sum - n;

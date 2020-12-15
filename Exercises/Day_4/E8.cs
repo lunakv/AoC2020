@@ -7,7 +7,7 @@ namespace Exercises.Day_4
 {
     public class E8 : E7_8
     {
-        private static readonly Dictionary<string,Predicate<string>> Formats = new Dictionary<string, Predicate<string>>
+        private static readonly Dictionary<string,Predicate<string>> Formats = new()
         {
             {"byr", val => int.TryParse(val, out int n) && n >= 1920 && n <= 2002},
             {"iyr", val => int.TryParse(val, out int n) && n >= 2010 && n <= 2020},
@@ -27,7 +27,7 @@ namespace Exercises.Day_4
             {"hcl", val => Regex.IsMatch(val, "^#[0-9a-f]{6}$")},
             {"ecl", val =>
             {
-                var s = new [] {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"};
+                string[] s = {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"};
                 return s.Contains(val);
             }},
             {"pid", val => Regex.IsMatch(val, "^[0-9]{9}$")}

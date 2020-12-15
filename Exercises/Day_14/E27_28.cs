@@ -6,7 +6,7 @@ namespace Exercises.Day_14
 {
     public abstract class E27_28 : StringSolver
     {
-        protected readonly Dictionary<ulong, ulong> Memory = new Dictionary<ulong, ulong>();
+        protected readonly Dictionary<ulong, ulong> Memory = new();
         protected const uint MaskLength = 36;
         
         protected abstract void ParseMask(string mask);
@@ -15,7 +15,7 @@ namespace Exercises.Day_14
         {
             foreach (string line in Input)
             {
-                var split = line.Split('=');
+                string[] split = line.Split('=');
                 if (split[0].StartsWith("mask"))
                 {
                     ParseMask(split[1]);
@@ -27,7 +27,7 @@ namespace Exercises.Day_14
             }
 
             ulong total = 0;
-            foreach ((ulong key, ulong val) in Memory)
+            foreach ((ulong _, ulong val) in Memory)
             {
                 total += val;
             }

@@ -9,19 +9,19 @@ namespace Utils
 
     public abstract class NumSolver : ISolver
     {
-        public virtual List<int> Input { get; set; } = new List<int>();
+        public List<int> Input { get; set; } = new();
         public abstract void Solve();
     }
 
     public abstract class StringSolver : ISolver
     {
-        public virtual List<string> Input { get; set; } = new List<string>();
+        public List<string> Input { get; set; } = new();
         public abstract void Solve();
     }
 
     public abstract class LongNumSolver : ISolver
     {
-        public virtual List<long> Input { get; set; } = new List<long>();
+        public List<long> Input { get; set; } = new();
         public abstract void Solve();
     }
 }

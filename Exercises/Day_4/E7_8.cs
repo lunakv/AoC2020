@@ -6,8 +6,7 @@ namespace Exercises.Day_4
 {
     public abstract class E7_8 : StringSolver
     {
-        protected readonly HashSet<string> Required = new HashSet<string>
-            {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};
+        protected readonly HashSet<string> Required = new() {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"};
         
         protected List<Dictionary<string, string>> GetPassports()
         {
@@ -22,10 +21,10 @@ namespace Exercises.Day_4
                 }
                 else
                 {
-                    var fields = line.Split(' ');
+                    string[] fields = line.Split(' ');
                     foreach (string field in fields)
                     {
-                        var split = field.Split(':');
+                        string[] split = field.Split(':');
                         if (split.Length < 2) 
                             throw new FormatException($"Field {field} has an invalid format.");
                         if (Required.Contains(split[0])) 

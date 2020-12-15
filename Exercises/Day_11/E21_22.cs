@@ -15,15 +15,15 @@ namespace Exercises.Day_11
         
         protected char[][] Run()
         {
-            char[][] a = Input.Select(s => s.ToCharArray()).ToArray();;
+            char[][] a = Input.Select(s => s.ToCharArray()).ToArray();
             char[][] b = a.Select(s => new char[s.Length]).ToArray();
             bool current = false; // false for 'a', true for 'b'
             bool changed;
             
             do
             {
-                var from = current ? b : a;
-                var to = current ? a : b;
+                char[][] from = current ? b : a;
+                char[][] to = current ? a : b;
                 changed = OneStep(from, to);
                 current = !current;
             } while (changed);
@@ -38,19 +38,19 @@ namespace Exercises.Day_11
             {
                 for (int j = 0; j < from[i].Length; j++)
                 {
-                    if (from[i][j] == Empty && CountAround(from, i, j) == 0)
+                    switch (from[i][j])
                     {
-                        to[i][j] = Occupied;
-                        changed = true;
-                    }
-                    else if (from[i][j] == Occupied && CountAround(from, i, j) >= OccupiedNeeded)
-                    {
-                        to[i][j] = Empty;
-                        changed = true;
-                    }
-                    else
-                    {
-                        to[i][j] = from[i][j];
+                        case Empty when CountAround(from, i, j) == 0:
+                            to[i][j] = Occupied;
+                            changed = true;
+                            break;
+                        case Occupied when CountAround(from, i, j) >= OccupiedNeeded:
+                            to[i][j] = Empty;
+                            changed = true;
+                            break;
+                        default:
+                            to[i][j] = from[i][j];
+                            break;
                     }
                 }
             }

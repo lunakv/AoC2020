@@ -45,8 +45,8 @@ namespace Exercises.Day_8
         {
             instructions[index] = instructions[index] switch
             {
-                NopOperation _ => new JmpOperation(instructions[index].N),
-                JmpOperation _ => new NopOperation(instructions[index].N),
+                NopOperation => new JmpOperation(instructions[index].N),
+                JmpOperation => new NopOperation(instructions[index].N),
                 _ => instructions[index]
             };
         }

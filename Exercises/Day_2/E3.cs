@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Exercises.Day_2
 {
@@ -6,14 +7,11 @@ namespace Exercises.Day_2
     {
         public override void Solve()
         {
-            var correct = 0;
+            int correct = 0;
             foreach (string line in Input)
             {
-                var count = 0;
                 (int lower, int upper, char letter, var passwd) = ParseLine(line);
-                foreach (char c in passwd)
-                    if (c == letter)
-                        count++;
+                int count = passwd.Count(c => c == letter);
 
                 if (count <= upper && count >= lower) correct++;
             }

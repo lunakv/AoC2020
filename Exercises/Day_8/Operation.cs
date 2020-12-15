@@ -4,7 +4,7 @@ namespace Exercises.Day_8
     
     public abstract class Operation
     {
-        public int N { get; protected set; }
+        public int N { get; protected init; }
         public abstract void Run(ref int acc, ref int sp);
     }
 

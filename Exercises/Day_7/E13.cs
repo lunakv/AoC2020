@@ -23,9 +23,9 @@ namespace Exercises.Day_7
             while (open.Count != 0)
             {
                 string curr = open.Pop();
-                if (!_reverseGraph.ContainsKey(curr)) continue;
+                if (!ReverseGraph.ContainsKey(curr)) continue;
                 
-                foreach ((string neighbor, int _) in _reverseGraph[curr])
+                foreach ((string neighbor, int _) in ReverseGraph[curr])
                 {
                     found.Add(neighbor);
                     open.Push(neighbor);

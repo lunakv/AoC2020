@@ -2,7 +2,7 @@ using System;
 
 namespace Exercises.Day_12
 {
-    class Ship
+    internal class Ship
     {
         private int _x;
         private int _y;
@@ -30,7 +30,7 @@ namespace Exercises.Day_12
 
         public void Move(int distance, Direction dir)
         {
-            (int, int) vector = dir switch
+            (int x, int y) = dir switch
             {
                 Direction.N => (distance, 0),
                 Direction.E => (0, distance),
@@ -39,8 +39,8 @@ namespace Exercises.Day_12
                 _ => throw new Exception("Invalid Direction enum value"),
             };
 
-            _x += vector.Item1;
-            _y += vector.Item2;
+            _x += x;
+            _y += y;
         }
 
         public void Rotate(int degrees, bool right)

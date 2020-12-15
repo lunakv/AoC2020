@@ -5,8 +5,8 @@ namespace Exercises.Day_14
 {
     public class E28 : E27_28
     {
-        private ulong _oneMask = 0;
-        private ulong _xMask = 0;
+        private ulong _oneMask;
+        private ulong _xMask;
         
         protected override void ParseMask(string mask)
         {
@@ -21,7 +21,7 @@ namespace Exercises.Day_14
         {
             ulong interAddress = ulong.Parse(command.Split('[', ']')[1]);
             ulong value = ulong.Parse(argument);
-            interAddress = (interAddress | _oneMask);
+            interAddress = interAddress | _oneMask;
 
             var addresses = ResolveAllAddresses(interAddress);
             foreach (ulong address in addresses)

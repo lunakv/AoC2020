@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace Utils
 {
@@ -53,7 +52,7 @@ namespace Utils
 
             if (int.TryParse(line, out int num)) return num;
 
-            throw new ArgumentException($"Input '{line}' couldn't be parsed as a number.", nameof(line));
+            throw new FormatException($"Input '{line}' couldn't be parsed as a number.");
         }
 
         public static List<string> LoadInput(TextReader reader)
@@ -67,25 +66,8 @@ namespace Utils
 
         public static List<string> LoadInput(string? path)
         {
-            TextReader? reader = path == null ? Console.In : new StreamReader(path);
+            TextReader reader = path == null ? Console.In : new StreamReader(path);
             return LoadInput(reader);
-        }
-
-        public static (int, string?) ParseArgs(string[] args)
-        {
-            if (args.Length < 1) throw new ArgumentException("The program needs an exercise number as an argument.");
-
-            if (!int.TryParse(args[0], out int ex))
-                throw new ArgumentException("The first argument has to be a number.");
-
-            return (ex, args.Length > 1 ? args[1] : null);
-        }
-
-        public static void ValidateExercise(int num, params int[] allowed)
-        {
-            if (!allowed.Contains(num))
-                throw new ArgumentOutOfRangeException(nameof(num),
-                    $"Exercise number {num} is invalid for this project.");
         }
     }
 }

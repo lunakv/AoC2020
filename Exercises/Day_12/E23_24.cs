@@ -3,7 +3,7 @@ using Utils;
 
 namespace Exercises.Day_12
 {
-    enum Direction
+    internal enum Direction
     {
         N,
         E,

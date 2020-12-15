@@ -5,7 +5,7 @@ namespace Exercises.Day_14
     public class E27 : E27_28
     {
         private ulong _zeroMask = ulong.MaxValue;
-        private ulong _oneMask = 0;
+        private ulong _oneMask;
         
         protected override void ParseMask(string mask)
         {

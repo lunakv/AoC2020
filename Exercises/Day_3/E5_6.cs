@@ -12,8 +12,8 @@ namespace Exercises.Day_3
         {
             uint trees = 0;
             int width = Input[0].Length;
-            var x = 0;
-            for (var y = 0; y < Input.Count; y += Slope.Item2)
+            int x = 0;
+            for (int y = 0; y < Input.Count; y += Slope.Item2)
             {
                 if (Input[y][x] == TreeChar) trees++;
                 x = (x + Slope.Item1) % width;

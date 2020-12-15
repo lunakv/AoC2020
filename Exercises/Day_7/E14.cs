@@ -13,10 +13,10 @@ namespace Exercises.Day_7
 
         private long CountContents(string bag)
         {
-            if (!_forwardGraph.ContainsKey(bag)) return 0;
+            if (!ForwardGraph.ContainsKey(bag)) return 0;
 
             long total = 0;
-            foreach ((string inside, int count) in _forwardGraph[bag])
+            foreach ((string inside, int count) in ForwardGraph[bag])
             {
                 total += count;
                 total += count * CountContents(inside);

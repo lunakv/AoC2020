@@ -9,8 +9,8 @@ namespace Exercises.Day_8
     
     public class Parser : IParser
     {
-        private readonly Tokenizer _tokenizer = new Tokenizer();
-        private readonly OpFactory _factory = new OpFactory();
+        private readonly Tokenizer _tokenizer = new();
+        private readonly OpFactory _factory = new();
    
         
         public List<Operation> ParseInput(List<string> input)
@@ -18,7 +18,7 @@ namespace Exercises.Day_8
             var ret = new List<Operation>();
             foreach (string line in input)
             {
-                var split = _tokenizer.Tokenize(line);
+                string[] split = _tokenizer.Tokenize(line);
                 Operation parsed = _factory.Create(split);
                 ret.Add(parsed);
             }

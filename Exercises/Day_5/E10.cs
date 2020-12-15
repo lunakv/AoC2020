@@ -6,7 +6,7 @@ namespace Exercises.Day_5
     {
         public override void Solve()
         {
-            var ids = GetIdMap();
+            bool[] ids = GetIdMap();
             for (int i = 1; i < ids.Length - 1; i++)
             {
                 if (!ids[i] && ids[i - 1] && ids[i + 1])

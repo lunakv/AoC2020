@@ -4,94 +4,71 @@ using Utils;
 
 namespace Exercises.Day_19
 {
+
     public abstract class E37_38 : StringSolver
     {
 
-        protected Dictionary<int, Symbol> ParseGrammar(Sectioner sec)
+        protected Grammar ParseGrammar(Sectioner sec)
         {
-            var grammarStrings = new Dictionary<int, string>();
-            var dependencies = new Dictionary<int, HashSet<int>>();
-
+            var grammar = new Grammar();
+            
             foreach (string line in sec.NextSection())
             {
                 string[] split = line.Split(':');
-                int num = int.Parse(split[0]);
-                grammarStrings[num] = split[1];
-                dependencies[num] = ParseDependencies(split[1]);
+                string name = split[0];
+                string ruleset = split[1];
+                grammar.NonTerminals.TryAdd(name, new NonTerminal {Name = name});
+                split = ruleset.Split('|');
+                foreach (string rule in split)
+                {
+                    AddRuleToGrammar(grammar, name, rule);
+                }
             }
 
-            return ParseGrammar(grammarStrings, dependencies);
-        }
-        
-        private HashSet<int> ParseDependencies(string rule)
-        {
-            var ret = new HashSet<int>();
-            foreach (var symbol in rule.Split(' '))
-            {
-                if (int.TryParse(symbol, out int num))
-                    ret.Add(num);
-            }
-            
-            return ret;
-        }
-
-        private Dictionary<int, Symbol> ParseGrammar(Dictionary<int, string> grammarStrings,
-            Dictionary<int, HashSet<int>> dependencies)
-        {
-            var grammar = new Dictionary<int, Symbol>();
-            foreach ((int num, string s) in grammarStrings)
-            {
-                ParseLine(num, grammarStrings, grammar, dependencies);
-            }
-
+            //PrintGrammar(grammar.NonTerminals);
             return grammar;
         }
 
-        private void ParseLine(int num, Dictionary<int, string> grammarStrings, Dictionary<int, Symbol> grammar,
-            Dictionary<int, HashSet<int>> dependencies)
+        private void AddRuleToGrammar(Grammar grammar, string startSymbol, string ruleString)
         {
-            if (dependencies.ContainsKey(num))
+            string[] split =
+                ruleString.Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+            var rule = new ReplaceRule {Symbols = new()};
+            foreach (string symbol in split)
             {
-                foreach (int dep in dependencies[num])
+                if (symbol.StartsWith('"'))
                 {
-                    if (!grammar.ContainsKey(dep))
-                    {
-                        ParseLine(dep, grammarStrings, grammar, dependencies);
-                    }
-                }
-            }
-
-            string[] options = grammarStrings[num].Split('|');
-            var expansions = new List<List<Symbol>>();
-            foreach (string option in options)
-            {
-                List<Symbol> rule = ParseRule(option, grammar);
-                expansions.Add(rule);
-            }
-
-            grammar[num] = new Nonterminal {Expansions = expansions};
-        }
-
-        private List<Symbol> ParseRule(string str, Dictionary<int, Symbol> grammar)
-        {
-            var ret = new List<Symbol>();
-            foreach (string symbol in str.Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)) 
-            {
-                if (int.TryParse(symbol, out int num))
-                {
-                    ret.Add(grammar[num]);
-                } 
-                else if (symbol.StartsWith('"'))
-                {
-                    ret.Add(new Terminal {Value = symbol.Trim('"')});    
+                    string term = symbol.Trim('"');
+                    grammar.Terminals.TryAdd(term, new Terminal {Name = term});
+                    rule.Symbols.Add(grammar.Terminals[term]);
                 }
                 else
                 {
-                    throw new FormatException($"Unknown symbol: '{symbol}'.");
+                    grammar.NonTerminals.TryAdd(symbol, new NonTerminal {Name = symbol});
+                    rule.Symbols.Add(grammar.NonTerminals[symbol]);
                 }
             }
 
-            return ret;
+            grammar.NonTerminals[startSymbol].Rules.Add(rule);
+        }
+
+        private void PrintGrammar(Dictionary<string, NonTerminal> grammar)
+        {
+            foreach ((string key, NonTerminal nt) in grammar)
+            {
+                Console.Write($"{key} -> ");
+                foreach (ReplaceRule rule in nt.Rules)
+                {
+                    foreach (Symbol s in rule.Symbols)
+                    {
+                        Console.Write($"{s.Name} ");
+                    }
+
+                    Console.Write("| ");
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }

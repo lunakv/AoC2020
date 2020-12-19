@@ -11,21 +11,21 @@ namespace Runner
         {
             // Parse exercise number and input path
             string? basePath = args.Length > 0 ? args[0].TrimEnd('/', '\\') : null;
-            if (args.Length <= 1 || !int.TryParse(args[1], out int num))
+            if (args.Length <= 1 || !int.TryParse(args[1], out int ex))
             {
                 Console.Write("Select exercise number: ");
-                num = Loader.LoadNumber(Console.In);
+                ex = Loader.LoadNumber(Console.In);
             }
-            string? path = basePath is null ? null : $"{basePath}/e{num}.txt";
+            int day = (ex + 1) / 2;
+            string? path = basePath is null ? null : $"{basePath}/day{day}.txt";
 
             // Create exercise solver instance
-            int day = (num + 1) / 2;
-            string solverName = $"Exercises.Day_{day}.E{num}";
+            string solverName = $"Exercises.Day_{day}.E{ex}";
             Assembly exercises = Assembly.Load("Exercises");
             object? instance = exercises.CreateInstance(solverName);
             if (!(instance is ISolver solver))
             {
-                Console.Error.WriteLine($"Solver for exercise {num} not yet implemented.");
+                Console.Error.WriteLine($"Solver for exercise {ex} not yet implemented.");
                 return;
             }
             

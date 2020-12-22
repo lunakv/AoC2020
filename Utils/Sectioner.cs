@@ -12,8 +12,9 @@ namespace Utils
             _input = input;
         }
 
-        public IEnumerable<string> NextSection()
+        public IEnumerable<string> NextSection(int skip = 0)
         {
+            _start += skip;
             for (int i = _start; i < _input.Count; i++)
             {
                 if (string.IsNullOrWhiteSpace(_input[i]))
